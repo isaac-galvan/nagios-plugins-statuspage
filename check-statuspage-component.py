@@ -77,19 +77,6 @@ class ComponentsList():
 
                 return c
 
-
-def output_result(code, message, longmessage=None):
-    # print the status description message
-    print(message)
-
-    # print the multi-line long message
-    if len(longmessage) > 0:
-        print(longmessage)
-
-    # exit process
-    raise SystemExit(code)
-
-
 def main(args):
     #create the result
     result = CheckResult()
