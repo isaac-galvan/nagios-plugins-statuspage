@@ -50,6 +50,12 @@ define command {
 
 This plugin reads the unresolved incidents on a Statuspage.io page and returns status to Nagios.  Long output is included with status, names, and short URL to incidents.
 
+Example output:
+```
+CRITICAL: 1 unresolved issue(s) reported
+Monitoring: Resnet router issues ~1500 on 12/05 (http://stspg.io/2e2b5d855)
+```
+
 See above to define a host with the _PAGEID custom variable macro.
 
 Define a service with the command:
