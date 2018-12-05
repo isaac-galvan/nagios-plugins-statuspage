@@ -97,7 +97,7 @@ def main(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='statuspage.io nagios check')
-    parser.add_argument('page_id', help='statuspage.io page id', default='208q92hckwws')
+    parser.add_argument('page_id', help='statuspage.io page id')
 
     args = parser.parse_args()
     main(vars(args))
