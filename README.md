@@ -10,6 +10,10 @@ This package contains Nagios plugins for getting status of components on a page 
 
 This plugin reads the status of a component on a Statuspage.io page and returns status to Nagios.
 
+#### Installation
+
+Install dependancies from `requirements.txt` and place the plugins where they can be executed by the Nagios user.
+
 #### Usage
 
 ```shell
