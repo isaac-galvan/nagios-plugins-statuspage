@@ -52,7 +52,7 @@ This plugin reads the unresolved incidents on a Statuspage.io page and returns s
 
 Example output:
 ```
-CRITICAL: 1 unresolved issue(s) reported
+CRITICAL: 1 unresolved incident(s) reported
 Monitoring: Resnet router issues ~1500 on 12/05 (http://stspg.io/2e2b5d855)
 ```
 
