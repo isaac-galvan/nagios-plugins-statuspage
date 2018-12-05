@@ -4,32 +4,15 @@
 
 This package contains Nagios plugins for getting status of components on a page hosted by Statuspage.io
 
+## Installation
+
+Install dependancies from `requirements.txt` and place the plugins where they can be executed by the Nagios user.
+
 ## Plugins
 
 ### check-statuspage-components
 
 This plugin reads the status of a component on a Statuspage.io page and returns status to Nagios.
-
-#### Installation
-
-Install dependancies from `requirements.txt` and place the plugins where they can be executed by the Nagios user.
-
-#### Usage
-
-```shell
-usage: check-statuspage-component.py [-h] page_id component_id
-
-statuspage.io nagios check
-
-positional arguments:
-  page_id       statuspage.io page id
-  component_id  component id
-
-optional arguments:
-  -h, --help    show this help message and exit
-```
-
-#### Configuration
 
 Inspect the JSON of your Statuspage to get the page id for your page and the id of any components you'd like to monitor.
 The components JSON file is typically at `https://status.example.com/api/v2/components.json`
@@ -60,5 +43,29 @@ Define a command object in your Nagios configuration which references the custom
 define command {
     command_name    check_statuspage_component
     command_line    $USER1$/check-statuspage-component.py $_HOSTPAGEID$ $_SERVICECOMPONENTID$
+}
+```
+
+### check-statuspage-incidents
+
+This plugin reads the unresolved incidents on a Statuspage.io page and returns status to Nagios.  Long output is included with status, names, and short URL to incidents.
+
+See above to define a host with the _PAGEID custom variable macro.
+
+Define a service with the command:
+```
+define service {
+    host_name                status.example.com
+    service_description      Unresolved Incidents
+    check_command            check_statuspage_incidents
+}
+```
+
+Define a command object in your Nagios configuration which references the custom variable macros specified in the host and service entries.
+
+```
+define command {
+    command_name    check_statuspage_incidents
+    command_line    $USER1$/check-statuspage-incidents.py $_HOSTPAGEID$
 }
 ```
