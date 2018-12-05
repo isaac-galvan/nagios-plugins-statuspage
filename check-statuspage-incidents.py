@@ -87,10 +87,10 @@ def main(args):
     count = incidents.get_incident_count()
     if count == 0:
         result.set_code(OK)
-        result.set_message('OK: No unresolved issues')
+        result.set_message('OK: No unresolved incidents')
     elif count > 0:
         result.set_code(CRITICAL)
-        result.set_message('CRITICAL: {0} unresolved issue(s) reported'.format(count))
+        result.set_message('CRITICAL: {0} unresolved incidents(s) reported'.format(count))
         result.set_longmessage(incidents.get_incident_summary())
     result.send()
 
